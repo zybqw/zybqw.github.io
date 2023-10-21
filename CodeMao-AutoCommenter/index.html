@@ -1,0 +1,908 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Aurzex">
+  <meta name="keywords" content="hexo,node,博客">
+  
+    <meta name="description" content="项目简介这个 Python 项目可以自动在编程猫网站上对作品进行点赞,评论以及回复,实现自动化模拟用户行为,以提高作品曝光率。✨ 作品说明原作:  python自动评论 Python评论自动回复  by 伴雪纷飞 现作者账号转移至 伴只狗头 参考:  账号密码登录代码 by PXstate  屏蔽词转换代码 by 伴雪纷飞 以及广大cdn社区参考文档  Chat GPT,Claude 参与了代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AUTO">
+<meta property="og:url" content="http://zybqw.github.io/CodeMao-AutoCommenter/">
+<meta property="og:site_name" content="zybqw的博客ヾ(≧ ▽ ≦)ゝ">
+<meta property="og:description" content="项目简介这个 Python 项目可以自动在编程猫网站上对作品进行点赞,评论以及回复,实现自动化模拟用户行为,以提高作品曝光率。✨ 作品说明原作:  python自动评论 Python评论自动回复  by 伴雪纷飞 现作者账号转移至 伴只狗头 参考:  账号密码登录代码 by PXstate  屏蔽词转换代码 by 伴雪纷飞 以及广大cdn社区参考文档  Chat GPT,Claude 参与了代码">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/zybqw/CodeMao-AutoCommenter/assets/132246733/c5c7067d-3959-4da7-9ea5-3e571d8e6a57">
+<meta property="og:image" content="https://api.star-history.com/svg?repos=zybqw/CodeMao-AutoCommenter&type=Date">
+<meta property="og:image" content="https://github-readme-stats.vercel.app/api?username=zybqw&show_icons=true&theme=vue">
+<meta property="article:published_time" content="2023-10-21T06:08:57.618Z">
+<meta property="article:modified_time" content="2023-10-21T06:28:11.332Z">
+<meta property="article:author" content="Aurzex">
+<meta property="article:tag" content="hexo,node,博客">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/zybqw/CodeMao-AutoCommenter/assets/132246733/c5c7067d-3959-4da7-9ea5-3e571d8e6a57">
+  
+  
+  
+  <title>AUTO - zybqw的博客ヾ(≧ ▽ ≦)ゝ</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zybqw.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Aurzex</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="AUTO"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-21 14:08" pubdate>
+          2023年10月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">AUTO</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="https://github.com/zybqw/CodeMao-AutoCommenter/assets/132246733/c5c7067d-3959-4da7-9ea5-3e571d8e6a57" srcset="/img/loading.gif" lazyload alt="signs"></p>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>这个 Python 项目可以自动在编程猫网站上对作品进行<strong>点赞</strong>,<strong>评论</strong>以及<strong>回复</strong>,实现自动化模拟用户行为,以提高作品曝光率。✨</p>
+<h2 id="作品说明"><a href="#作品说明" class="headerlink" title="作品说明"></a>作品说明</h2><p>原作:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://shequ.codemao.cn/community/429585">python自动评论</a></li>
+<li><a target="_blank" rel="noopener" href="https://shequ.codemao.cn/community/430412">Python评论自动回复</a></li>
+</ul>
+<p><strong>by</strong> <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/2856172">伴雪纷飞</a></p>
+<p>现作者账号转移至 <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/1888155714">伴只狗头</a></p>
+<p>参考:</p>
+<ul>
+<li>账号密码登录代码 <strong>by</strong> <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/1258391425">PXstate</a> </li>
+<li>屏蔽词转换代码 <strong>by</strong> <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/2856172">伴雪纷飞</a></li>
+<li>以及广大cdn社区参考文档</li>
+</ul>
+<p>Chat GPT,Claude 参与了代码修改!</p>
+<p>感谢《<strong>A Byte of Python</strong>》(《简明Python教程》)Swaroop C H撰 漠伦译 </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://zhuanlan.zhihu.com/p/24672770">说明文档</a></li>
+</ul>
+<h2 id="功能列表"><a href="#功能列表" class="headerlink" title="功能列表"></a>功能列表</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+模拟登录</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 支持账号密码登录 🔐</li>
+<li><input checked="" disabled="" type="checkbox"> 支持直接 Cookie 登录 🍪</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+获取最新作品</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 从网站接口获取最新上传作品列表 🆕</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+获取最新回复</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 获取新的评论与回复以及点赞信息😉</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+自动点赞</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 调用接口对作品点赞 👍</li>
+<li><input checked="" disabled="" type="checkbox"> 统计点赞次数 🔢</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+自动评论</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 随机获取评论内容 💬</li>
+<li><input checked="" disabled="" type="checkbox"> 随机选择表情 😃</li>
+<li><input checked="" disabled="" type="checkbox"> 统计评论次数 📊</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+自动回复</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 多种回复模式📃</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+数据过滤</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 跳过已评论过的作品 ❌</li>
+<li><input checked="" disabled="" type="checkbox"> 跳过点赞数过多的作品 🙅‍♂️</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+结果记录</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 记录已评论过的作品,避免重复 🙅‍♀️</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+随机间隔</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 每次操作后随机等待一定时间间隔 ⏳</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+配置文件</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 支持修改评论回复内容✍</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+侦测评论</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 侦测作品前200个评论,避免因为log文件丢失而重复评论🎫</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+速度至上</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1.10版本全面重写🔍</li>
+<li><input checked="" disabled="" type="checkbox"> 优秀的代码逻辑💎</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+异步处理</p>
+<ul>
+<li><input disabled="" type="checkbox"> 正在学习<strong>aiohttp</strong>，<strong>asyncio</strong>库</li>
+<li><input checked="" disabled="" type="checkbox"> 可能在任何时候都会终止这个计划📌</li>
+</ul>
+</li>
+</ul>
+<h2 id="环境需要"><a href="#环境需要" class="headerlink" title="环境需要"></a>环境需要</h2><h3 id="需要安装的库"><a href="#需要安装的库" class="headerlink" title="需要安装的库"></a>需要安装的库</h3><ul>
+<li>requests</li>
+<li>beautifulsoup4  </li>
+<li>configparser</li>
+</ul>
+<h3 id="库的安装方法"><a href="#库的安装方法" class="headerlink" title="库的安装方法"></a>库的安装方法</h3><p>可以使用 pip 直接安装:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install requests<br>pip install beautifulsoup4<br></code></pre></td></tr></table></figure>
+
+<p>如果使用pip安装速度慢,可以先配置pip国内镜像源加速安装:</p>
+<ul>
+<li><pre><code class="python">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # 永久设置
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br><br>- ```python<br><span class="hljs-title">  pip install example -i https:</span>//pypi.tuna.tsinghua.edu.cn/simple # 暂时设置 <br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>配置完成后,再使用pip安装库。</p>
+<p>还有其他国内源</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">清华</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">阿里云</a></li>
+<li><a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">中国科技大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">华中理工大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://pypi.sdutlinux.org/">山东理工大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">豆瓣</a></li>
+</ul>
+<p>如果有其他更好的安装建议,也欢迎提出,我会继续完善。</p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">├── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span>     主程序文件 💻<br>├── config<span class="hljs-selector-class">.ini</span>  信息配置文件 📄<br>└── qwq<span class="hljs-selector-class">.txt</span>     结果记录文件 📄<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li>配置 Python 环境,安装需要的库 👩‍💻</li>
+<li>运行 Automatic-comments.py ▶️</li>
+<li>根据提示选择登录方式<ul>
+<li>选择账号密码登录,输入编程猫账号和密码 👤</li>
+<li>选择 Cookie 登录,输入获取的 Cookie 值 🍪</li>
+</ul>
+</li>
+<li>输入结果记录文件保存路径 📁</li>
+<li>选择仅<strong>点赞</strong>或<strong>点赞+评论</strong>或<strong>点赞+评论+回复</strong>✅</li>
+<li>程序将自动运行,打开作品列表并处理 🤖</li>
+</ol>
+<h2 id="主要功能详解"><a href="#主要功能详解" class="headerlink" title="主要功能详解"></a>主要功能详解</h2><h3 id="1-模拟登录"><a href="#1-模拟登录" class="headerlink" title="1. 模拟登录"></a>1. 模拟登录</h3><p>支持账号密码登录和 Cookie 登录两种方式。</p>
+<ul>
+<li><p>账号密码登录会调用登录接口,在登录成功后获取 Cookie 值保存。👤</p>
+</li>
+<li><p>Cookie 登录直接使用用户输入的 Cookie。🍪</p>
+</li>
+</ul>
+<p>登录成功后会保存账号信息,用于后续请求。🔑</p>
+<p>(由于cookie具有时效性,并未保存)</p>
+<h3 id="2-获取最新作品"><a href="#2-获取最新作品" class="headerlink" title="2. 获取最新作品"></a>2. 获取最新作品</h3><p>使用官方接口获取最新上传的作品列表,作为处理对象。</p>
+<ul>
+<li><code>https://api.codemao.cn/creation-tools/v1/pc/discover/newest-work?limit=&#123;num1&#125;&amp;offset=&#123;num2&#125;</code>🆕</li>
+</ul>
+<p>其中<code>offset</code>表示忽略前**个作品，<code>limit</code>获取之后的作品列表</p>
+<ul>
+<li><p><code>&#123;num1&#125;</code>为必填项 # <strong>num2  &gt;&#x3D;  5</strong></p>
+</li>
+<li><p><code>&#123;num2&#125;</code>为选填项</p>
+</li>
+</ul>
+<h3 id="3-获取最新回复"><a href="#3-获取最新回复" class="headerlink" title="3.获取最新回复"></a>3.获取最新回复</h3><p>使用官方接口获取最新评论与回复,作为处理对象。</p>
+<ul>
+<li><code>https://api.codemao.cn/web/message-record/count</code></li>
+</ul>
+<p>如果有新回复，则获取最新列表</p>
+<ul>
+<li><p><code>https://api.codemao.cn/web/message-record?query_type=COMMENT_REPLY&amp;limit=&#123;num1&#125;&amp;offset=&#123;num2&#125;</code></p>
+</li>
+<li><p><code>&#123;num1&#125;</code>为必填项 # <strong>num2  &gt;&#x3D;  5</strong></p>
+</li>
+<li><p><code>&#123;num2&#125;</code>为选填项</p>
+</li>
+</ul>
+<h3 id="4-自动点赞"><a href="#4-自动点赞" class="headerlink" title="4. 自动点赞"></a>4. 自动点赞</h3><p>对每一个作品调用点赞接口进行点赞:</p>
+<ul>
+<li><code>https://api.codemao.cn/nemo/v2/works/&#123;work_id&#125;/like</code></li>
+</ul>
+<p>如果点赞成功会打印日志,并统计成功点赞数。👍</p>
+<ul>
+<li><code>&#123;work_id&#125;</code>需获取最新作品，见响应体</li>
+</ul>
+<h3 id="5-自动评论"><a href="#5-自动评论" class="headerlink" title="5. 自动评论"></a>5. 自动评论</h3><p>从定义好的内容和表情列表中随机选择,构造评论数据,调用评论接口进行评论。</p>
+<ul>
+<li><p><code>https://api.codemao.cn/creation-tools/v1/works/&#123;work_id&#125;/comment</code></p>
+</li>
+<li><p><code>&#123;work_id&#125;</code>需获取最新作品，见响应体</p>
+</li>
+</ul>
+<p>如果评论成功会打印日志,并统计成功评论数，否则会打印错误码💬</p>
+<h3 id="6-自动回复"><a href="#6-自动回复" class="headerlink" title="6. 自动回复"></a>6. 自动回复</h3><p>从定义好的内容中随机选择,构造回复数据,调用回复接口进行评论。</p>
+<ul>
+<li><code>https://api.codemao.cn/web/forums/replies/&#123;replied_id&#125;/comments</code><ul>
+<li>回复类型为WORK_COMMENT</li>
+<li><code>&#123;replied_id&#125;</code>需获取最新回复，见响应体</li>
+</ul>
+<p>			</p>
+</li>
+<li><code>https://api.codemao.cn/creation-tools/v1/works/&#123;&#125;/comment/&#123;&#125;/reply</code><ul>
+<li>回复类型为WORK_REPLY，WORK_REPLY_REPLY_FEEDBACK，WORK_REPLY_REPLY</li>
+<li><code>&#123;business_id&#125;</code>，<code>&#123;replied_id&#125;</code>需获取最新回复，见响应体</li>
+</ul>
+</li>
+</ul>
+<p>	</p>
+<p>​	如果回成功会打印日志,并统计成功回复数，否则会打印错误码💬</p>
+<h3 id="7-数据过滤"><a href="#7-数据过滤" class="headerlink" title="7.数据过滤"></a>7.数据过滤</h3><p>​	在评论前会校验该作品是否已被评论过,如果评论过则跳过。❌</p>
+<p>​	同时也会判断作品点赞数,如果超过 50 则不评论。🙅‍♂️</p>
+<h3 id="8-结果记录"><a href="#8-结果记录" class="headerlink" title="8. 结果记录"></a>8. 结果记录</h3><p>​	每次运行结束会保存当次的点赞数和评论数。📝</p>
+<p>​	已评论过的作品编号会记录到文本文件中,避免重复评论。🙅‍♀️</p>
+<h3 id="9-随机间隔"><a href="#9-随机间隔" class="headerlink" title="9. 随机间隔"></a>9. 随机间隔</h3><p>​	每个操作完成后会随机等待 12-16 秒左右时间,然后再处理下一个作品,避免请求过于频繁。⏳</p>
+<h2 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h2><p>这个项目主要运用了 requests、BeautifulSoup 等库模拟登录并解析页面,通过调用官方 API 实现自动化点赞和评论。✨</p>
+<p>程序加入了一定的过滤机制,间隔设置以及代理来规避风控。🛡️</p>
+<p>可以作为 Python 网络爬虫和接口调用的练手项目,与此同时需要注意合理使用,遵守网站规则。❗️</p>
+<p><strong>如果有任何问题欢迎反馈,本项目仅用于技术学习交流。💬</strong></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tsinghua.edu.cn/d/df482a15afb64dfeaff8/">GitHub访问加速</a></li>
+<li><a target="_blank" rel="noopener" href="https://ghproxy.com/">GitHub下载加速</a> </li>
+<li><a target="_blank" rel="noopener" href="https://www.123pan.com/s/oRHZVv-PBKtv.html">123云盘</a>    提取码:<em>ygyc</em> </li>
+<li><a target="_blank" rel="noopener" href="https://zybqw.lanzout.com/b04e5pmcd">蓝奏云网盘</a>    密码:<em>ygyc</em> </li>
+<li><strong>解压密码</strong>:<em><strong>zybqw</strong></em></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>如果您对此项目有任何问题或建议，欢迎随时联系我。😊</p>
+<ul>
+<li>邮箱：<a href="mailto:&#x7a;&#x79;&#98;&#x71;&#119;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#x7a;&#x79;&#98;&#x71;&#119;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a> 📧</li>
+<li>个人主页：<a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/12770114">https://shequ.codemao.cn/user/12770114</a> 🌐</li>
+<li>QQ: 3611198191</li>
+<li>微信: Aurorzex</li>
+</ul>
+<h2 id="Star-History"><a href="#Star-History" class="headerlink" title="Star History"></a>Star History</h2><p><a target="_blank" rel="noopener" href="https://star-history.com/#zybqw/CodeMao-AutoCommenter&Date"><img src="https://api.star-history.com/svg?repos=zybqw/CodeMao-AutoCommenter&type=Date" srcset="/img/loading.gif" lazyload alt="Star History Chart"></a></p>
+<h2 id="我的Github-统计"><a href="#我的Github-统计" class="headerlink" title="我的Github 统计:"></a>我的Github 统计:</h2><p><a target="_blank" rel="noopener" href="https://github.com/zybqw"><img src="https://github-readme-stats.vercel.app/api?username=zybqw&show_icons=true&theme=vue" srcset="/img/loading.gif" lazyload alt="zybqw&#39;s GitHub stats"></a></p>
+<h2 id="感谢您的阅读！😉"><a href="#感谢您的阅读！😉" class="headerlink" title="感谢您的阅读！😉"></a>感谢您的阅读！😉</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>AUTO</div>
+      <div>http://zybqw.github.io/CodeMao-AutoCommenter/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Aurzex</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"zybqw/zybqw","repo-id":"R_kgDOJdrGHA","category":"Show and tell","category-id":"DIC_kwDOJdrGHM4CaTO6","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
