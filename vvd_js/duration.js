@@ -1,8 +1,10 @@
 $(function () {
 	// 设置一个1秒后的定时器来隐藏元素
-	setTimeout(function () {
-		$("#Loadanimation").fadeOut(500);
-	}, 1000);
+	//setTimeout(function () {
+	//$("#Loadanimation").fadeOut(500);
+	//}, 1000);
+
+	$("#Loadanimation").fadeOut(500);
 });
 
 !(function () {
