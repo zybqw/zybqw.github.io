@@ -331,10 +331,10 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/3.2.0/waline.min.css')
-      Fluid.utils.createScript('https://cdn.staticfile.org/waline/3.2.0/waline.min.js', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.15.8/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.15.8/waline.min.js', function() {
         var options = Object.assign(
-          {"serverURL":"comment.aurzex.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji "],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"search":false,"reaction":true,"placeholder":"快来说点什么吧~","avatar":"retro"},
+          {"serverURL":"comment.aurzex.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"search":false,"reaction":true,"avatar":"retro","locale":{"placeholder":"快来说点什么吧~","sofa":"天青色等烟雨，评论区在等你"}},
           {
             el: '#waline',
             path: window.location.pathname
