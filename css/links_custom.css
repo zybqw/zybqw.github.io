@@ -1,73 +1,73 @@
 a.card-body.hover-with-bg {
-    border-left: 5px solid #6cf;
-    background: #b6a6a680;
-    color: #fff;
-    box-shadow: 0 5px 10px #00000050;
-    transition: all .5s;
+	border-left: 5px solid #6cf;
+	background: #b6a6a680;
+	color: #fff;
+	box-shadow: 0 5px 10px #1aaecf50;
+	transition: all 0.5s;
 }
 
 a.card-body.hover-with-bg img {
-    transition: all 5s;
-    border: 2px solid #fff;
+	transition: all 5s;
+	border: 2px solid #fff;
 }
 
-a.card-body.hover-with-bg:hover img{
-    transform: rotate(1080deg);
+a.card-body.hover-with-bg:hover img {
+	transform: rotate(1080deg);
 }
 
 .link-intro {
-    color: #000000;
-    font-weight: 600;
-    font-family: auto;
+	color: #000000;
+	font-weight: 600;
+	font-family: auto;
 }
 
 a.card-body.hover-with-bg:hover {
-    border-left-width: 15px;
-    background-color: #fff;
+	border-left-width: 15px;
+	background-color: #fff;
 }
 
 .navbar-brand {
-    padding-top: 0;
-    padding-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .sign {
-    --color-sign: #fff;
+	--color-sign: #fff;
 
-    fill: transparent;
-    stroke-width: 16px;
-    stroke-linejoin: round;
+	fill: transparent;
+	stroke-width: 16px;
+	stroke-linejoin: round;
 
-    stroke: var(--color-sign);
-    stroke-dasharray: var(--total-length) var(--total-length);
-    stroke-dashoffset: calc(var(--total-length) * -1);
+	stroke: var(--color-sign);
+	stroke-dasharray: var(--total-length) var(--total-length);
+	stroke-dashoffset: calc(var(--total-length) * -1);
 
-    &[data-part="qin"] {
-        --total-length: 6660;
-        animation: sign 2s linear forwards;
-    }
+	&[data-part="qin"] {
+		--total-length: 6660;
+		animation: sign 2s linear forwards;
+	}
 
-    &[data-part="dot"] {
-        --color-sign: #4FCD54;
-        --total-length: 502;
-        animation: sign .5s linear 2s forwards;
-    }
+	&[data-part="dot"] {
+		--color-sign: #4fcd54;
+		--total-length: 502;
+		animation: sign 0.5s linear 2s forwards;
+	}
 
-    &[data-part="shaner"] {
-        --total-length: 9802;
-        animation: sign 2s linear 2.5s forwards;
-    }
+	&[data-part="shaner"] {
+		--total-length: 9802;
+		animation: sign 2s linear 2.5s forwards;
+	}
 }
 
 @keyframes sign {
-    80% {
-        fill: transparent;
-        stroke-width: 16px;
-    }
+	80% {
+		fill: transparent;
+		stroke-width: 16px;
+	}
 
-    100% {
-    fill: var(--color-sign);
-    stroke-dashoffset: 0;
-    stroke-width: 0px;
-    }
+	100% {
+		fill: var(--color-sign);
+		stroke-dashoffset: 0;
+		stroke-width: 0px;
+	}
 }
