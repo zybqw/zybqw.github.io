@@ -18,15 +18,9 @@
 }
 
 [data-user-color-scheme="dark"] {
-	--link-hover-bg-color: #36415199;
-	--text-color: #cecece !important;
-	--sec-text-color: #cecece !important;
-}
-
-:root {
-	--link-hover-bg-color: #f8f9fa57;
-	--text-color: #000;
-	--sec-text-color: #000;
+	--link-hover-bg-color: #3c6b6b;
+	--text-color: #cecece;
+	--sec-text-color: #cecece;
 }
 
 .category-list .category {
