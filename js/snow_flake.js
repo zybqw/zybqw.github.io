@@ -18,10 +18,7 @@ class SnowFall {
 		document.body.appendChild(snowcanvas);
 		this.canvas = snowcanvas;
 		this.ctx = snowcanvas.getContext("2d");
-		window.addEventListener("resize", () => {
-			this.adjustCanvasSize(snowcanvas);
-			this.calculateOptimalFlakes(); // 窗口调整大小时重新计算雪花数量
-		});
+		window.addEventListener("resize", this.onResize.bind(this));
 	}
 
 	adjustCanvasSize(canvas) {
@@ -31,7 +28,7 @@ class SnowFall {
 
 	calculateOptimalFlakes() {
 		const pixels = window.innerWidth * window.innerHeight;
-		this.maxFlake = Math.round(pixels / 150000); // 每5000个像素点有一个雪花
+		this.maxFlake = Math.round(pixels / 150000); // 每150000个像素点有一个雪花
 		this.flakes = []; // 重置雪花数组以避免重复
 		this.createFlakes(); // 基于新的maxFlake值创建雪花
 	}
@@ -61,6 +58,11 @@ class SnowFall {
 	start() {
 		this.drawSnow();
 	}
+
+	onResize() {
+		this.adjustCanvasSize(this.canvas);
+		this.calculateOptimalFlakes(); // 窗口调整大小时重新计算雪花数量
+	}
 }
 
 class FlakeMove {
@@ -81,13 +83,13 @@ class FlakeMove {
 		this.speed = Math.random() * 1 + this.fallSpeed;
 		this.velY = this.speed;
 		this.velX = Math.random() * 2 - 1; // 随机初始化水平速度，使雪花左右飘动
-		this.stepSize = Math.random() * 2; // 调整步长，使飘动更明显
+		this.stepSize = Math.random() * 5; // 调整步长，使飘动更明显
 		this.step = 0;
 	}
 
 	update() {
 		this.velX *= 0.98;
-		this.velY = this.speed; // Keep vertical speed constant
+		this.velY = this.speed; // 保持垂直速度不变
 		this.y += this.velY;
 		this.x += this.velX;
 		this.step += this.stepSize;
@@ -112,7 +114,6 @@ class FlakeMove {
 		gradient.addColorStop(0, "rgba(255, 255, 255, 0.9)"); // 中心白色
 		gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.5)"); // 中心白色
 		gradient.addColorStop(1, "rgba(255, 255, 255, 0.3)"); // 边缘透明
-
 		ctx.fillStyle = gradient;
 		ctx.beginPath();
 		ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
