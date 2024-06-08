@@ -2,7 +2,6 @@ const ap = new APlayer({
 	container: document.getElementById("aplayer"),
 	volume: 0.5,
 	fixed: true,
-	autoplay: true, //自动播放
 	audio: [
 		{
 			name: "光与影的对白",
