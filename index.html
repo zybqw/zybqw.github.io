@@ -66,6 +66,7 @@
 <link rel="stylesheet" href="/css/links_custom.css">
 <link rel="stylesheet" href="/css/loading.css">
 <link rel="stylesheet" href="/css/waline_custom.css">
+<link rel="stylesheet" href="/css/aplayer.css">
 <link rel="stylesheet" href="//lib.baomitu.com/lxgw-wenkai-screen-webfont/1.7.0/style.min.css">
 
 
@@ -91,6 +92,18 @@
 
 <body><!-- hexo injector body_begin start --><div id="web_bg"></div><div id="Loadanimation" style="z-index:999999;"><div id="Loadanimation-center"><div id="Loadanimation-center-absolute"><div class="xccx_object" id="xccx_four"></div><div class="xccx_object" id="xccx_three"></div><div class="xccx_object" id="xccx_two"></div><div class="xccx_object" id="xccx_one"></div></div></div></div><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/aplayer/latest/APlayer.min.css"> <div id="aplayer"></div><script type="text/javascript" src="https://lib.baomitu.com/aplayer/latest/APlayer.min.js"></script><script type="text/javascript" src="/js/aplayer.js"></script><!-- hexo injector body_begin end -->
   
+<script type="text/javascript">
+	/*窗口监视*/
+	var originalTitle = document.title;
+	window.onblur = function () {
+		document.title = "≧ ﹏ ≦ 别走~";
+	};
+	window.onfocus = function () {
+		document.title = originalTitle;
+	};
+</script>
+
+
 
   <header>
     
@@ -207,7 +220,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://pic.imgdb.cn/item/6650c39fd9c307b7e9e4e8b0.webp') no-repeat center center; background-size: cover;">
+  style="background: url('https://pic.imgdb.cn/item/6650c39fd9c307b7e9e4e8b0.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -230,6 +243,137 @@
 </div>
 
 </div>
+
+<div style="height: 500px" id="bubbles"></div>
+<script>
+	circleMagic();
+	function circleMagic(options) {
+		let width;
+		let height;
+		let canvas;
+		let ctx;
+		let animateHeader = true;
+		const circles = [];
+
+		const settings = options || {
+			color: "rgba(255,255,255,.3)",
+			radius: 10,
+			density: 0.1,
+			clearOffset: 0.7,
+		};
+
+		const container = document.getElementById("bubbles");
+		initContainer();
+		addListeners();
+
+		function initContainer() {
+			width = container.offsetWidth;
+			height = container.offsetHeight - 120;
+
+			initCanvas();
+			canvas = document.getElementById("homeTopCanvas");
+			canvas.width = width;
+			canvas.height = height;
+			canvas.style.position = "absolute";
+			canvas.style.left = "0";
+			canvas.style.bottom = "0";
+			ctx = canvas.getContext("2d");
+
+			for (let x = 0; x < width * settings.density; x++) {
+				const c = new Circle();
+				circles.push(c);
+			}
+			animate();
+		}
+
+		function initCanvas() {
+			const canvasElement = document.createElement("canvas");
+			canvasElement.id = "homeTopCanvas";
+			canvasElement.style.pointerEvents = "none";
+			container.appendChild(canvasElement);
+			canvasElement.parentElement.style.overflow = "hidden";
+		}
+
+		function addListeners() {
+			window.addEventListener("scroll", scrollCheck, false);
+			window.addEventListener("resize", resize, false);
+		}
+
+		function scrollCheck() {
+			if (document.body.scrollTop > height) {
+				animateHeader = false;
+			} else {
+				animateHeader = true;
+			}
+		}
+
+		function resize() {
+			width = container.clientWidth;
+			height = container.clientHeight;
+			container.height = height + "px";
+			canvas.width = width;
+			canvas.height = height;
+		}
+
+		function animate() {
+			if (animateHeader) {
+				ctx.clearRect(0, 0, width, height);
+				for (const i in circles) {
+					circles[i].draw();
+				}
+			}
+			requestAnimationFrame(animate);
+		}
+
+		function randomColor() {
+			const r = Math.floor(Math.random() * 255);
+			const g = Math.floor(Math.random() * 255);
+			const b = Math.floor(Math.random() * 255);
+			const alpha = Math.random().toPrecision(2);
+			return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+		}
+
+		function Circle() {
+			const that = this;
+			(function () {
+				that.pos = {};
+				init();
+			})();
+			function init() {
+				that.pos.x = Math.random() * width;
+				that.pos.y = height + Math.random() * 100;
+				that.alpha = 0.1 + Math.random() * settings.clearOffset;
+				that.scale = 0.1 + Math.random() * 0.3;
+				that.speed = Math.random();
+				if (settings.color === "random") {
+					that.color = randomColor();
+				} else {
+					that.color = settings.color;
+				}
+			}
+			this.draw = function () {
+				if (that.alpha <= 0) {
+					init();
+				}
+				that.pos.y -= that.speed;
+				that.alpha -= 0.0005;
+				ctx.beginPath();
+				ctx.arc(
+					that.pos.x,
+					that.pos.y,
+					that.scale * settings.radius,
+					0,
+					2 * Math.PI,
+					false
+				);
+				ctx.fillStyle = that.color;
+				ctx.fill();
+				ctx.closePath();
+			};
+		}
+	}
+</script>
+
 
   </header>
 
@@ -454,13 +598,7 @@
     })
   </script>
 
-
-<script  src="https://lib.baomitu.com/jquery/latest/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
- <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+ <script  src="https://lib.baomitu.com/jquery/latest/jquery.min.js" ></script> <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script> <script  src="/js/events.js" ></script> <script  src="/js/plugins.js" ></script>  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
 <script>
   (function (window, document) {
     var typing = Fluid.plugins.typing;
@@ -506,35 +644,10 @@
   })(window, document);
 </script>
 
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-  
+   <script  src="/js/img-lazyload.js" ></script>     <script  src="/js/local-search.js" ></script>    
 <script src="/js/mouse_click.js"></script>
 <script src="/js/snow_flake.js"></script>
-
-
-
-
-  <script type="text/javascript">
-    /*窗口监视*/
-    var originalTitle = document.title;
-    window.onblur = function(){document.title = "≧ ﹏ ≦ 别走~"};
-    window.onfocus = function(){document.title = originalTitle};
-  </script>
-
+ 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->

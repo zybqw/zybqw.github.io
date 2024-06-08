@@ -77,6 +77,7 @@
 <link rel="stylesheet" href="/css/links_custom.css">
 <link rel="stylesheet" href="/css/loading.css">
 <link rel="stylesheet" href="/css/waline_custom.css">
+<link rel="stylesheet" href="/css/aplayer.css">
 <link rel="stylesheet" href="//lib.baomitu.com/lxgw-wenkai-screen-webfont/1.7.0/style.min.css">
 
 
@@ -102,6 +103,18 @@
 
 <body><!-- hexo injector body_begin start --><div id="web_bg"></div><div id="Loadanimation" style="z-index:999999;"><div id="Loadanimation-center"><div id="Loadanimation-center-absolute"><div class="xccx_object" id="xccx_four"></div><div class="xccx_object" id="xccx_three"></div><div class="xccx_object" id="xccx_two"></div><div class="xccx_object" id="xccx_one"></div></div></div></div><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/aplayer/latest/APlayer.min.css"> <div id="aplayer"></div><script type="text/javascript" src="https://lib.baomitu.com/aplayer/latest/APlayer.min.js"></script><script type="text/javascript" src="/js/aplayer.js"></script><!-- hexo injector body_begin end -->
   
+<script type="text/javascript">
+	/*窗口监视*/
+	var originalTitle = document.title;
+	window.onblur = function () {
+		document.title = "≧ ﹏ ≦ 别走~";
+	};
+	window.onfocus = function () {
+		document.title = originalTitle;
+	};
+</script>
+
+
 
   <header>
     
@@ -218,7 +231,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://pic.imgdb.cn/item/66486279d9c307b7e986b36a.webp') no-repeat center center; background-size: cover;">
+  style="background: url('https://pic.imgdb.cn/item/66486279d9c307b7e986b36a.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -277,6 +290,7 @@
 </div>
 
 </div>
+
 
   </header>
 
@@ -495,7 +509,7 @@
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>如果您对此项目有任何问题或建议,欢迎随时联系我.😊</p>
 <ul>
 <li>博客: zybqw.github.io</li>
-<li>邮箱: <a href="mailto:&#x7a;&#121;&#98;&#113;&#119;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x7a;&#121;&#98;&#113;&#119;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a> 📧</li>
+<li>邮箱: <a href="mailto:&#x7a;&#x79;&#98;&#113;&#x77;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x7a;&#x79;&#98;&#113;&#x77;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a> 📧</li>
 <li>猫站主页: <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/12770114">https://shequ.codemao.cn/user/12770114</a> 🌐</li>
 <li>QQ: 3611198191</li>
 <li>微信: Aurorzex</li>
@@ -756,13 +770,7 @@
     })
   </script>
 
-
-<script  src="https://lib.baomitu.com/jquery/latest/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
- <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+ <script  src="https://lib.baomitu.com/jquery/latest/jquery.min.js" ></script> <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script> <script  src="/js/events.js" ></script> <script  src="/js/plugins.js" ></script>  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
 <script>
   (function (window, document) {
     var typing = Fluid.plugins.typing;
@@ -778,17 +786,7 @@
   })(window, document);
 </script>
 
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
+   <script  src="/js/img-lazyload.js" ></script>     
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
@@ -826,13 +824,7 @@
     });
   });
 </script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>  <script>Fluid.plugins.codeWidget();</script>
   
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
@@ -869,37 +861,16 @@
     });
   });
 </script>
-
-
   
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-  
+  <script>Fluid.plugins.imageCaption();</script>  <script  src="/js/local-search.js" ></script>    
 <script src="/js/mouse_click.js"></script>
 <script src="/js/snow_flake.js"></script>
-
-
-
-
-  <script type="text/javascript">
-    /*窗口监视*/
-    var originalTitle = document.title;
-    window.onblur = function(){document.title = "≧ ﹏ ≦ 别走~"};
-    window.onfocus = function(){document.title = originalTitle};
-  </script>
-
+ 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->

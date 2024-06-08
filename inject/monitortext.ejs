@@ -1,0 +1,12 @@
+<% if(theme.fun_features.monitortext.enable) { %>
+<script type="text/javascript">
+	/*窗口监视*/
+	var originalTitle = document.title;
+	window.onblur = function () {
+		document.title = "<%- theme.fun_features.monitortext.text %>";
+	};
+	window.onfocus = function () {
+		document.title = originalTitle;
+	};
+</script>
+<% } %>
