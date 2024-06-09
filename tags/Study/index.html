@@ -66,7 +66,8 @@
 <link rel="stylesheet" href="/css/links_custom.css">
 <link rel="stylesheet" href="/css/loading.css">
 <link rel="stylesheet" href="/css/waline_custom.css">
-<link rel="stylesheet" href="/css/aplayer.css">
+<link rel="stylesheet" href="/css/heart_beat.css">
+<link rel="stylesheet" href="/css/reading_process.css">
 <link rel="stylesheet" href="//lib.baomitu.com/lxgw-wenkai-screen-webfont/1.7.0/style.min.css">
 
 
@@ -90,16 +91,21 @@
 <meta name="generator" content="Hexo 7.2.0"></head>
 
 
-<body><!-- hexo injector body_begin start --><div id="web_bg"></div><div id="Loadanimation" style="z-index:999999;"><div id="Loadanimation-center"><div id="Loadanimation-center-absolute"><div class="xccx_object" id="xccx_four"></div><div class="xccx_object" id="xccx_three"></div><div class="xccx_object" id="xccx_two"></div><div class="xccx_object" id="xccx_one"></div></div></div></div><script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/aplayer/latest/APlayer.min.css"> <div id="aplayer"></div><script type="text/javascript" src="https://lib.baomitu.com/aplayer/latest/APlayer.min.js"></script><script type="text/javascript" src="/js/aplayer.js"></script><!-- hexo injector body_begin end -->
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><div id="Loadanimation" style="z-index:999999;"><div id="Loadanimation-center"><div id="Loadanimation-center-absolute"><div class="xccx_object" id="xccx_four"></div><div class="xccx_object" id="xccx_three"></div><div class="xccx_object" id="xccx_two"></div><div class="xccx_object" id="xccx_one"></div></div></div></div><link rel="stylesheet" href="https://lib.baomitu.com/aplayer/latest/APlayer.min.css"> <div id="aplayer"></div><script type="text/javascript" src="https://lib.baomitu.com/aplayer/latest/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><!-- hexo injector body_begin end -->
   
 <script type="text/javascript">
 	/*窗口监视*/
 	var originalTitle = document.title;
+	var titleTime;
 	window.onblur = function () {
 		document.title = "≧ ﹏ ≦ 别走~";
+		clearTimeout(titleTime);
 	};
 	window.onfocus = function () {
-		document.title = originalTitle;
+		document.title = "－O－ 欢迎回来~";
+		titleTime = setTimeout(function () {
+			document.title = originalTitle;
+		}, 3000);
 	};
 </script>
 
@@ -346,7 +352,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a><br> <a href="https://icp.gov.moe/?keyword=20241106" target="_blank"><span>萌ICP备20241106号</span></a><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><br> <script src="/vvd_js/duration.js"></script> <span style="text-decoration: line-through"><span>猫鱼a倾情制作(划掉</span></a> 
+       <div class="footer-content"> Copyright © 2023<script> document.write(" - " + (new Date()).getFullYear()) </script> | <a href="https://hexo.io" target="_blank" rel="nofollow noopener">Hexo</a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">Fluid</a> <i class="iconfont icon-love"></i> <a href="/about" target="_blank" rel="nofollow noopener">Aurzex</a><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><br> <script src="/vvd_js/duration.js"></script> <a href="https://icp.gov.moe/?keyword=20241106" target="_blank"><span>萌ICP备20241106号</span></a><br> <span style="text-decoration: line-through">猫鱼a倾情制作(划掉</a> </div> <meting-js server="netease" type="playlist" id="10144090220" mini="true" autoplay="true" fixed="true" volume="0.5"> </meting-js> 
     </div>
   
   
@@ -388,6 +394,8 @@
    <script  src="/js/img-lazyload.js" ></script>     <script  src="/js/local-search.js" ></script>    
 <script src="/js/mouse_click.js"></script>
 <script src="/js/snow_flake.js"></script>
+<script src="/js/typing_effect.js"></script>
+<script src="/js/loading.js"></script>
  
 
 <!-- 主题的启动项，将它保持在最底部 -->

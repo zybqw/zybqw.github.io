@@ -7,6 +7,7 @@ class SnowFall {
 		this.initCanvas();
 		this.calculateOptimalFlakes(); // 动态计算最佳雪花数量
 		this.createFlakes();
+		requestAnimationFrame(() => this.drawSnow());
 	}
 
 	initCanvas() {
@@ -28,12 +29,11 @@ class SnowFall {
 
 	calculateOptimalFlakes() {
 		const pixels = window.innerWidth * window.innerHeight;
-		this.maxFlake = Math.round(pixels / 150000); // 每150000个像素点有一个雪花
-		this.flakes = []; // 重置雪花数组以避免重复
-		this.createFlakes(); // 基于新的maxFlake值创建雪花
+		this.maxFlake = Math.round(pixels / 300000); // 每500000个像素点有一个雪花
 	}
 
 	createFlakes() {
+		this.flakes.length = 0; // 重置雪花数组以避免重复
 		for (let i = 0; i < this.maxFlake; i++) {
 			this.flakes.push(
 				new FlakeMove(
@@ -47,21 +47,19 @@ class SnowFall {
 	}
 
 	drawSnow() {
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		const ctx = this.ctx;
+		ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.flakes.forEach((flake) => {
 			flake.update();
-			flake.render(this.ctx);
+			flake.render(ctx);
 		});
 		requestAnimationFrame(() => this.drawSnow());
-	}
-
-	start() {
-		this.drawSnow();
 	}
 
 	onResize() {
 		this.adjustCanvasSize(this.canvas);
 		this.calculateOptimalFlakes(); // 窗口调整大小时重新计算雪花数量
+		this.createFlakes(); // 基于新的maxFlake值创建雪花
 	}
 }
 
@@ -75,9 +73,9 @@ class FlakeMove {
 	}
 
 	reset(initial = false) {
-		this.x = Math.floor(Math.random() * this.canvasWidth);
+		this.x = Math.random() * this.canvasWidth;
 		this.y = initial
-			? Math.floor(Math.random() * this.canvasHeight) - this.canvasHeight
+			? Math.random() * this.canvasHeight - this.canvasHeight
 			: -this.maxSize;
 		this.size = Math.random() * this.maxSize + 2;
 		this.speed = Math.random() * 1 + this.fallSpeed;
@@ -98,7 +96,9 @@ class FlakeMove {
 			this.x < -this.maxSize ||
 			this.y > this.canvasHeight
 		) {
-			this.reset();
+			if (this.y > this.canvasHeight) {
+				this.reset(); // 仅在雪花完全离开屏幕时重置
+			}
 		}
 	}
 
@@ -123,4 +123,3 @@ class FlakeMove {
 
 // 初始化雪花效果
 const snow = new SnowFall(); // 移除maxFlake参数，以便使用动态计算的值
-snow.start();

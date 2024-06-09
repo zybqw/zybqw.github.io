@@ -2,11 +2,16 @@
 <script type="text/javascript">
 	/*窗口监视*/
 	var originalTitle = document.title;
+	var titleTime;
 	window.onblur = function () {
-		document.title = "<%- theme.fun_features.monitortext.text %>";
+		document.title = "<%- theme.fun_features.monitortext.quit %>";
+		clearTimeout(titleTime);
 	};
 	window.onfocus = function () {
-		document.title = originalTitle;
+		document.title = "<%- theme.fun_features.monitortext.back %>";
+		titleTime = setTimeout(function () {
+			document.title = originalTitle;
+		}, 3000);
 	};
 </script>
 <% } %>

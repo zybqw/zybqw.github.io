@@ -1,0 +1,27 @@
+#content_progress {
+	/* Positioning */
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 32766;
+	width: 100%;
+	height: 6px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	color: #29b7cb;
+}
+
+#content_progress::-webkit-progress-bar {
+	background-color: transparent;
+}
+
+#content_progress::-webkit-progress-value {
+	background-color: #29b7cb;
+}
+
+#content_progress::-moz-progress-bar {
+	background-color: #29b7cb;
+}

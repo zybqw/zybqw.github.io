@@ -1,12 +1,3 @@
-$(function () {
-	// 设置一个1秒后的定时器来隐藏元素
-	//setTimeout(function () {
-	//$("#Loadanimation").fadeOut(500);
-	//}, 1000);
-
-	$("#Loadanimation").fadeOut(500);
-});
-
 !(function () {
 	/** 计时起始时间，自行修改 **/
 	var start = new Date("2023/11/16 00:00:00");
