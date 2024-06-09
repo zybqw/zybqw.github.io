@@ -29,7 +29,7 @@ class SnowFall {
 
 	calculateOptimalFlakes() {
 		const pixels = window.innerWidth * window.innerHeight;
-		this.maxFlake = Math.round(pixels / 300000); // 每500000个像素点有一个雪花
+		this.maxFlake = Math.round(pixels / 400000); // 每500000个像素点有一个雪花
 	}
 
 	createFlakes() {
