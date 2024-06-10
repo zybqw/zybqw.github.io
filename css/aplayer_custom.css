@@ -8,7 +8,9 @@
 	) !important; /* 设置背景颜色并增加透明度 */
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.07), 0 1px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 	position: relative;
-	font-family: var(--global-font), -apple-system, "LXGW Wenkai Screen"; /* 设置字体 */
+	font-family: "LXGW Wenkai Screen";
+
+	/* 设置字体 */
 }
 
 .aplayer.aplayer-fixed .aplayer-lrc:after,
