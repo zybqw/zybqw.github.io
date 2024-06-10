@@ -58,47 +58,6 @@
 	text-shadow: 0 1px #6cf, 0 -1px #6cf, 1px 0 #6cf, -1px 0 #6cf !important; /* 歌词阴影 */
 }
 
-[data-user-color-scheme="dark"].aplayer {
-	background: rgba(22, 22, 22, 0.6) !important; /* 暗色模式背景 */
-	color: #ffffff;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.07), 0 1px 5px rgba(0, 0, 0, 0.1); /* 暗色模式阴影 */
-}
-
-[data-user-color-scheme="dark"].aplayer.aplayer-fixed .aplayer-body {
-	background: rgba(22, 22, 22, 0.6) !important; /* 暗色模式固定播放器背景 */
-	color: #ffffff;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.07), 0 1px 5px rgba(0, 0, 0, 0.1); /* 暗色模式固定播放器阴影 */
-}
-
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-controller
-	.aplayer-time,
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-controller
-	.aplayer-icon
-	path,
-[data-user-color-scheme="dark"].aplayer .aplayer-list ol li:hover,
-[data-user-color-scheme="dark"].aplayer .aplayer-list ol li.aplayer-list-light,
-[data-user-color-scheme="dark"].aplayer .aplayer-list ol li .aplayer-list-index,
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-list
-	ol
-	li
-	.aplayer-list-author,
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-music
-	.aplayer-author,
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-controller
-	.aplayer-time {
-	color: #d4d4d4;
-	background: var(--theme-color) !important; /* 暗色模式下的文本和背景颜色 */
-}
-
 .aplayer .aplayer-miniswitcher {
 	height: 40% !important;
 	left: 290px;
@@ -145,15 +104,6 @@
 	width: 284px !important; /* 固定播放器样式 */
 }
 
-[data-user-color-scheme="dark"].aplayer.aplayer-fixed .aplayer-body {
-	bottom: 10px !important;
-	left: 10px !important;
-	background: rgba(0, 0, 0, 0.5) !important;
-	border-radius: 10px;
-	backdrop-filter: blur(10px);
-	color: white !important; /* 暗色模式下固定播放器样式 */
-}
-
 .aplayer.aplayer-fixed .aplayer-body:hover {
 	border: 1px solid rgb(210, 210, 210);
 	box-shadow: 3px 3px 5px #88888894; /* 固定播放器悬停效果 */
@@ -164,17 +114,6 @@
 	transform: translateX(-1px); /* 图片样式 */
 }
 
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-music
-	.aplayer-author,
-[data-user-color-scheme="dark"].aplayer
-	.aplayer-info
-	.aplayer-controller
-	.aplayer-time {
-	color: white !important; /* 暗色模式下的作者和时间样式 */
-}
-
 .aplayer.aplayer-fixed .aplayer-list {
 	border: none !important;
 	background-color: var(--theme-color) !important;
@@ -182,12 +121,6 @@
 	width: 200px;
 	border-radius: 10px;
 	backdrop-filter: blur(10px); /* 固定播放器列表样式 */
-}
-
-[data-user-color-scheme="dark"].aplayer.aplayer-fixed .aplayer-list {
-	background: var(
-		--theme-color
-	) !important; /* 暗色模式下的固定播放器列表样式 */
 }
 
 .aplayer.aplayer-fixed .aplayer-icon-lrc {
@@ -209,7 +142,71 @@
 	visibility: hidden; /* 隐藏外层 div */
 	display: block; /* 保持其位置 */
 }
+
 .aplayer.aplayer-withlist.aplayer-fixed > * {
 	visibility: visible; /* 显示子元素 */
 	display: block; /* 保持块级元素状态 */
+}
+
+[data-user-color-scheme="dark"] .aplayer {
+	background: rgba(22, 22, 22, 0.6) !important;
+	color: rgb(255, 255, 255);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.1); /* 暗色模式下阴影 */
+}
+
+[data-user-color-scheme="dark"] .aplayer.aplayer-fixed .aplayer-body {
+	background: rgba(22, 22, 22, 0.6) !important;
+	color: rgb(255, 255, 255);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.1); /* 暗色模式下固定播放器背景和阴影 */
+}
+
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-controller
+	.aplayer-time,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-controller
+	.aplayer-icon
+	path,
+[data-user-color-scheme="dark"] .aplayer .aplayer-list ol li:hover,
+[data-user-color-scheme="dark"] .aplayer .aplayer-list ol li.aplayer-list-light,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-list
+	ol
+	li
+	.aplayer-list-index,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-list
+	ol
+	li
+	.aplayer-list-author,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-music
+	.aplayer-author,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-controller
+	.aplayer-time {
+	color: #d4d4d4; /* 暗色模式下的文本和背景颜色 */
+}
+
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-music
+	.aplayer-author,
+[data-user-color-scheme="dark"]
+	.aplayer
+	.aplayer-info
+	.aplayer-controller
+	.aplayer-time {
+	color: white !important; /* 暗色模式下的作者和时间样式 */
 }
