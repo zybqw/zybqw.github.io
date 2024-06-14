@@ -62,25 +62,25 @@
 
 .aplayer .aplayer-miniswitcher {
 	height: 40% !important;
-	left: 0; /* 切换前贴近屏幕边缘 */
+	left: 290px;
 	border-radius: 8px !important;
 	top: 20px !important; /* 切换按钮样式 */
 }
 
 .aplayer-narrow .aplayer-miniswitcher {
 	position: fixed !important;
-	left: 320px !important; /* 切换后位置到left 320px */
+	left: 300px !important;
 	bottom: 10px !important;
 	height: 26px !important; /* 狭窄模式切换按钮样式 */
 }
 
 .aplayer-fixed.aplayer-narrow .aplayer-body {
 	transition: all 1s;
-	transform: translateX(-320px);
-	-webkit-transform: translateX(-320px);
-	-moz-transform: translateX(-320px);
-	-ms-transform: translateX(-320px);
-	-o-transform: translateX(-320px);
+	transform: translateX(-300px);
+	-webkit-transform: translateX(-300px);
+	-moz-transform: translateX(-300px);
+	-ms-transform: translateX(-300px);
+	-o-transform: translateX(-300px);
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
 	-ms-transition: all 1s;

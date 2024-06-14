@@ -5,7 +5,7 @@
 
 
 
-<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><script src="/js/reading_process.js"></script><!-- hexo injector head_begin end -->
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><script src="/inject/reading_process.js"></script><!-- hexo injector head_begin end -->
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://pic.imgdb.cn/item/66486297d9c307b7e986d421.webp">
   <link rel="icon" href="https://pic.imgdb.cn/item/66486297d9c307b7e986d421.webp">
@@ -107,15 +107,25 @@
 <script type="text/javascript">
 	/*窗口监视*/
 	var originalTitle = document.title;
+	var originalIcon = "https://pic.imgdb.cn/item/66486297d9c307b7e986d421.webp";
 	var titleTime;
 	window.onblur = function () {
 		document.title = "≧ ﹏ ≦ 别走~";
+		$('[rel="icon"]').attr(
+			"href",
+			"https://pic.imgdb.cn/item/666c3b52d9c307b7e918cf99.webp"
+		);
 		clearTimeout(titleTime);
 	};
 	window.onfocus = function () {
 		document.title = "－O－ 欢迎回来~";
+		$('[rel="icon"]').attr(
+			"href",
+			"https://pic.imgdb.cn/item/666c3b52d9c307b7e918cfa8.webp"
+		);
 		titleTime = setTimeout(function () {
 			document.title = originalTitle;
+			$('[rel="icon"]').attr("href", originalIcon);
 		}, 3000);
 	};
 </script>
@@ -355,7 +365,7 @@
             <p>适用于 Aumiao1.12 版本<br><strong>本项目仅用于技术学习交流</strong></p>
           </div>
 
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><p><a href="#%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B">项目简介</a></p>
 </li>
 <li><p><a href="#%E4%BD%9C%E5%93%81%E8%AF%B4%E6%98%8E">作品说明</a></p>
@@ -532,13 +542,13 @@
 <p><code>nuitka --standalone --mingw64 --plugin-enable=upx --upx-binary=&quot;E:\zybqw\upx\upx.exe&quot; --show-progress --show-memory --remove-output --windows-icon-from-ico=luo.ico --windows-company-name=&quot;猫鱼a&quot; --windows-product-name=&quot;Aumiao&quot; --windows-file-version=&quot;1.12.5&quot; --windows-file-description=&quot;A CodeMao Community Tool&quot; --output-dir=out Aumiao.py</code></p>
 <ul>
 <li>tips: 如若没有 ico 文件,请删除<code>--windows-icon-from-ico=luo.ico</code>字段后再运行</li>
-<li>tips: 如果没有 upx 文件,请删除<code>--plugin-enable=upx --upx-binary=&quot;E:\zybqw\upx\upx.exe&quot;</code>字段<br>等待运行完成,即可在{FILEPATH}下的 out 目录使用可执行文件版</li>
+<li>tips: 如果没有 upx 文件,请删除<code>--plugin-enable=upx --upx-binary=&quot;E:\zybqw\upx\upx.exe&quot;</code>字段<br>  等待运行完成,即可在{FILEPATH}下的 out 目录使用可执行文件版</li>
 </ul>
 <p><strong>如果有任何问题欢迎反馈,本项目仅用于技术学习交流.💬</strong></p>
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>如果您对此项目有任何问题或建议,欢迎随时联系我.😊</p>
 <ul>
 <li>博客: zybqw.github.io</li>
-<li>邮箱: <a href="mailto:&#x7a;&#121;&#x62;&#x71;&#119;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#x7a;&#121;&#x62;&#x71;&#119;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a> 📧</li>
+<li>邮箱: <a href="mailto:&#x7a;&#121;&#x62;&#113;&#119;&#64;&#113;&#x71;&#46;&#x63;&#111;&#109;">&#x7a;&#121;&#x62;&#113;&#119;&#64;&#113;&#x71;&#46;&#x63;&#111;&#109;</a> 📧</li>
 <li>猫站主页: <a target="_blank" rel="noopener" href="https://shequ.codemao.cn/user/12770114">https://shequ.codemao.cn/user/12770114</a> 🌐</li>
 <li>QQ: 3611198191</li>
 <li>微信: Aurorzex</li>
@@ -901,7 +911,7 @@
 <script src="/js/snow_flake.js"></script>
 <script src="/js/typing_effect.js"></script>
 <script src="/js/loading.js"></script>
-<script src="/js/aplayer_music.js"></script>
+<script src="/js/waline_avatar.js"></script>
 <script src="/js/fps.js"></script>
  
 
@@ -915,5 +925,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+<!-- hexo injector body_end start --><script src="/inject/backgroundize.js"></script><!-- hexo injector body_end end --></body>
 </html>

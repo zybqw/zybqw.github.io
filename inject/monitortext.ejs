@@ -2,15 +2,25 @@
 <script type="text/javascript">
 	/*窗口监视*/
 	var originalTitle = document.title;
+	var originalIcon = "<%- theme.favicon %>";
 	var titleTime;
 	window.onblur = function () {
 		document.title = "<%- theme.fun_features.monitortext.quit %>";
+		$('[rel="icon"]').attr(
+			"href",
+			"<%- theme.fun_features.monitortext.quit_icon %>"
+		);
 		clearTimeout(titleTime);
 	};
 	window.onfocus = function () {
 		document.title = "<%- theme.fun_features.monitortext.back %>";
+		$('[rel="icon"]').attr(
+			"href",
+			"<%- theme.fun_features.monitortext.back_icon %>"
+		);
 		titleTime = setTimeout(function () {
 			document.title = originalTitle;
+			$('[rel="icon"]').attr("href", originalIcon);
 		}, 3000);
 	};
 </script>
