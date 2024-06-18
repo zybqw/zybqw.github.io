@@ -1,0 +1,11 @@
+.avatar:hover {
+	transform: rotate(360deg); /* 鼠标悬停时旋转 */
+}
+
+.avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%; /* 将图片圆形化 */
+	transition: transform 0.5s; /* 过渡效果 */
+	margin-bottom: 50px; /* 与下面的文字对齐 */
+}

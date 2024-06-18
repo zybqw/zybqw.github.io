@@ -1,0 +1,8 @@
+/* 添加到你的CSS文件中 */
+.from-caption {
+	font-size: smaller; /* 或者你可以使用具体的像素值 */
+	color: #888; /* 深灰色通常用于较不显眼的文本 */
+	display: block; /* 保证换行 */
+	margin-top: 5px; /* 为from提供一些额外的空间 */
+	font-style: italic; /* 可选：使from看起来像引用来源 */
+}

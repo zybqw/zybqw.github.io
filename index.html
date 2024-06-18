@@ -5,7 +5,7 @@
 
 
 
-<head>
+<head><!-- hexo injector head_begin start --><link rel="stylesheet" href="/css/avatar.css"><!-- hexo injector head_begin end -->
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://pic.imgdb.cn/item/66486297d9c307b7e986d421.webp">
   <link rel="icon" href="https://pic.imgdb.cn/item/66486297d9c307b7e986d421.webp">
@@ -265,7 +265,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="去码头整点薯条"></span>
+            <span id="subtitle" data-typed-text="&lt;img src=&#39;https://cravatar.cn/avatar/ef166b47449cc7e4e71cec1a2f826a70?s=200&amp;d=mp&#39; class=&#39;my-avatar&#39; /&gt; &lt;br /&gt; 去码头整点薯条"></span>
           
         </div>
 
@@ -509,46 +509,67 @@
  <script  src="https://lib.baomitu.com/jquery/latest/jquery.min.js" ></script> <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script> <script  src="/js/events.js" ></script> <script  src="/js/plugins.js" ></script>  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
 <script>
   (function (window, document) {
-    var typing = Fluid.plugins.typing;
-    var subtitle = document.getElementById('subtitle');
-    if (!subtitle || !typing) {
-      return;
-    }
-    var text;
-    
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+          return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
       jQuery.ajax({
-        type: 'GET',
-        url: 'https://v1.hitokoto.cn/',
-        headers: {},
-        dataType: 'json',
-        success: function(result) {
-          var apiText;
-          if (result) {
-            var keys = 'hitokoto'.split(',');
-            if (result instanceof Array) {
-              result = result[0];
-            }
-            for (const k of keys) {
-              var value = result[k];
-              if (typeof value === 'string') {
-                apiText = value;
-                break;
-              } else if (value instanceof Object) {
-                result = value;
+          type: 'GET',
+          url: 'https://v1.hitokoto.cn/',
+          headers: {},
+          dataType: 'json',
+          success: function (result) {
+              // 打字机输出内容
+              var apiText;
+              // 一言、来源作品、发言人
+              var hitokoto, from, fromWho;
+              // 从一言接口得到的JSON结果
+              if (result) {
+                  // 需要的结果字段名，取决于_config[.主题名称].yml中的配置
+                  var keys = 'hitokoto,from,from_who'.split(',');
+                  if (result instanceof Array) {
+                      // 得到 去掉外层{}的 数据
+                      result = result[0];
+                  }
+                  // 取出实际展示的字段
+                  for (const k of keys) {
+                      var value = result[k];
+                      if (typeof value === 'string') {
+                          if (hitokoto == null) {
+                              hitokoto = value;
+                          } else if (from == null) {
+                              from = value
+                          } else if (fromWho == null) {
+                              fromWho = value;
+                          }
+                      } else if (value instanceof Object) {
+                          result = value;
+                      }
+                  }
+                  // 头像
+                  apiText = "<img src='https://cravatar.cn/avatar/ef166b47449cc7e4e71cec1a2f826a70?s=200&amp;d=mp' class='avatar' />";
+                  // 样式
+                  apiText += '<p style="font-size: 30px; text-align: center">『&#12288;' + hitokoto + '』</p>' +
+                          '<p style="margin-top: 15px; text-align: right; font-size: 24px; color: #e0e0e0">——';
+                  // 一言的发言人可能未知
+                  if (fromWho != null) {
+                      apiText += fromWho;
+                  }
+                  apiText += '「' + from + '」</p>';
               }
-            }
-            text = apiText ? (result.hitokoto + ' —— ' + result.from) : (result.hitokoto + ' —— ' + result.hitokoto);
+              apiText ? typing(apiText) : typing(text);
+          },
+          error: function (xhr, status, error) {
+              if (error) {
+                  console.error('Failed to request https://v1.hitokoto.cn/:', error);
+              }
+              typing(text);
           }
-          typing(text);
-        },
-        error: function(xhr, status, error) {
-          if (error) {
-            console.error('Failed to request https://v1.hitokoto.cn/:', error);
-          }
-          typing(text);
-        }
       })
-    
+      
   })(window, document);
 </script>
 
