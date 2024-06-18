@@ -77,7 +77,7 @@ class FlakeMove {
 		this.y = initial
 			? Math.random() * this.canvasHeight - this.canvasHeight
 			: -this.maxSize;
-		this.size = Math.random() * this.maxSize + 2;
+		this.size = Math.random() * this.maxSize + 5;
 		this.speed = Math.random() * 1 + this.fallSpeed;
 		this.velY = this.speed;
 		this.velX = Math.random() * 2 - 1; // 随机初始化水平速度，使雪花左右飘动
@@ -111,9 +111,10 @@ class FlakeMove {
 			this.y,
 			this.size
 		);
-		gradient.addColorStop(0, "rgba(255, 255, 255, 0.9)"); // 中心白色
-		gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.5)"); // 中心白色
-		gradient.addColorStop(1, "rgba(255, 255, 255, 0.3)"); // 边缘透明
+		gradient.addColorStop(0, "rgba(255, 183, 197, 0.9)"); // 中心
+		gradient.addColorStop(0.3, "rgba(255, 183, 197, 0.7)"); // 中心
+		gradient.addColorStop(0.5, "rgba(255, 183, 197, 0.5)"); // 中心
+		gradient.addColorStop(1, "rgba(255, 183, 197, 0.3)"); // 边缘透明
 		ctx.fillStyle = gradient;
 		ctx.beginPath();
 		ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
