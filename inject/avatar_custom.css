@@ -1,11 +1,13 @@
-.avatar:hover {
-	transform: rotate(360deg); /* 鼠标悬停时旋转 */
-}
-
 .avatar {
 	width: 150px;
 	height: 150px;
-	border-radius: 50%; /* 将图片圆形化 */
-	transition: transform 0.5s; /* 过渡效果 */
-	margin-bottom: 50px; /* 与下面的文字对齐 */
+	border-radius: 50%; /* 保持图片为圆形 */
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+	border: 6px solid #fcf2f2; /* 默认灰色阴影，放大5倍 */
+	transition: box-shadow 0.3s ease; /* 平滑过渡效果 */
+	margin-bottom: 50px; /* 保持与文字的对齐 */
+}
+
+.avatar:hover {
+	box-shadow: 0 0 30px 15px #c1e9fc; /* 鼠标悬停时，阴影变为蓝色且扩大5倍 */
 }
