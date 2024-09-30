@@ -50,6 +50,9 @@
 			) {
 				this.modelList || (await this.loadModelList());
 				const o = e(this.modelList.models[t]);
+				if ((o = undefined)) {
+					o = "crypton";
+				}
 				loadlive2d("live2d", `${this.cdnPath}model/${o}/index.json`);
 				console.log(`Live2D 模型 ${o} 加载完成`);
 			} else
