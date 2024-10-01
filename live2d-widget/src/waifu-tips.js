@@ -1,3 +1,1 @@
-import initWidget from "./index.js";
-
-window.initWidget = initWidget;
+import initWidget from"./index.js";window.initWidget=initWidget;

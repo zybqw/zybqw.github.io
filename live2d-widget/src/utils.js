@@ -1,5 +1,1 @@
-function randomSelection(obj) {
-    return Array.isArray(obj) ? obj[Math.floor(Math.random() * obj.length)] : obj;
-}
-
-export default randomSelection;
+function randomSelection(r){return Array.isArray(r)?r[Math.floor(Math.random()*r.length)]:r}export default randomSelection;
